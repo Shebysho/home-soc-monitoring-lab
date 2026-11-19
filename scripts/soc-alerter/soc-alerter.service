@@ -1,0 +1,12 @@
+[Unit]
+Description=Suricata EVE JSON Telegram Alerter
+After=network.target suricata.service
+
+[Service]
+EnvironmentFile=/opt/soc-alerter/.env
+ExecStart=/usr/bin/python3 /opt/soc-alerter/alerter.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
